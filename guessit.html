@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title>What color is it ?</title>
+    </head>
+<body>
+
+<h1>Guess the color Bala</h1>
+
+<h2>Let's Start!!!!!</h2>
+
+<form>
+    <label for="mystery_color">Guess the color:</label>
+    <input type="password" id="mysteryColor" value="Red"><br><br>
+
+    <label for="guess_color">Enter a guess:</label>
+    <input type="text" id="guessColor" autofocus><br><br>
+
+    <input type="button" onclick="processColor()" value="Check the color" style="background-color: crimson; color: white;">
+
+</form>
+
+<p id="result">Attempts: 0, Wrong guesses: 0</p>
+<div>
+    
+    <img id="plantImage" src="Rainbow_Punch.png" alt="Plant 1" width="250" height="250" onclick="nextImage()">
+</div>
+
+<script>
+    let attempts = 0;
+    let wrong = 0;
+    let showing = 1;
+
+    function processColor() {
+        let mysteryColor = document.getElementById("mysteryColor").value;
+
+        let guessedColor = document.getElementById("guessColor").value;
+
+        if (mysteryColor.toLowerCase() === guessedColor.toLowerCase()) {
+            alert("You got it!");
+        } else {
+            wrong++;
+            alert("That was not it.");
+        }
+
+        attempts++;
+
+        document.getElementById("result").innerHTML = `Attempts: ${attempts}, Wrong guesses: ${wrong}`;
+    }
+
+    
+</script>
+</body>
+</html> 
