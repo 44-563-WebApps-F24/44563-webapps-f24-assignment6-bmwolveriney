@@ -22,7 +22,7 @@
         <input type="checkbox" id="in" value="in">
         <br>
 
-        
+
         <button type="button" onclick="startLunch()">Start a lunch order</button>
     </form>
     <br>
@@ -35,25 +35,30 @@
         <input type="text" id="value" value="">
         <br><br>
 
-        
+
         <button type="button" onclick="updateLunch()">Update the lunch</button>
     </form>
     <p id="result"></p>
+    <hr>
+
+    
+    <a href="math.html">Math Tricks!</a>
+    <br>
+    <a href="guessit.html">Guess it to Win it!</a>
+    
 
     <script>
         let my_lunch = {};
 
-        
-        function startLunch() {
-            
-            my_lunch = {};
 
-           
+        function startLunch() {
+
+            my_lunch = {};
             my_lunch.drink = document.getElementById('drink').checked;
             my_lunch.side = document.getElementById('side').checked;
             my_lunch.eat_in = document.getElementById('in').checked;
 
-            
+
             document.getElementById('result').innerHTML = `
                 <strong>Lunch Order:</strong><br>
                 Drink: ${my_lunch.drink ? 'Yes' : 'No'}<br>
