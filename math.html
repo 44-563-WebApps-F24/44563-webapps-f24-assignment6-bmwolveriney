@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Calculator</title>
+    </head>
+
+<body>
+
+    <h2>Bala figures out</h2>
+
+    <label for="first">Enter a number </label>
+    <input type="number" id="first" value="2">
+    <br>
+    <br>
+    <label for="second">Enter a number </label>
+    <input type="number" id="second" value="12">
+    <br>
+    <br>
+    <input type="button" value="Compute" onclick="powerSum()">
+    <p id="powerResult"></p>
+    <form>
+        <input type="radio" id="max" name="operation" value="max" checked onclick="processRadio()">
+        <label for="max">Max</label><br>
+
+        <input type="radio" id="min" name="operation" value="min" onclick="processRadio()">
+        <label for="min">Min</label><br>
+
+        <input type="radio" id="avg" name="operation" value="avg" onclick="processRadio()">
+        <label for="avg">Average</label><br>
+
+        <input type="radio" id="geo" name="operation" value="geo" onclick="processRadio()">
+        <label for="geo">Geometric</label><br>
+    </form>
+    <p id="radioResult"></p>
+    <script>
+        function powerSum() {
+            let first = parseInt(document.getElementById('first').value);
+            let second = parseInt(document.getElementById('second').value);
+            let sum = 0;
+            for (let i = 0; i < first; i++) {
+                sum += Math.pow(second, i);
+            }
+            document.getElementById('powerResult').innerHTML = `Sum of ${first} powers with base ${second} is ${sum}`;
+        }
+
+        function processRadio() {
+            let first = parseFloat(document.getElementById('first').value);
+            let second = parseFloat(document.getElementById('second').value);
+            let result = 0;
+            let operation = "";
+            if (document.getElementById('max').checked) {
+                result = Math.max(first, second);
+                operation = "Max";
+            } else if (document.getElementById('min').checked) {
+                result = Math.min(first, second);
+                operation = "Min";
+            } else if (document.getElementById('avg').checked) {
+                result = (first + second) / 2;
+                operation = "Average";
+            } else if (document.getElementById('geo').checked) {
+                result = (first * second) ** 0.5;
+                operation = "Geometric Mean";
+            }
+            document.getElementById('radioResult').innerHTML = `Computed ${operation} with values ${first} and ${second} with result ${result}`;
+        }
+    </script>
+
+</body>
+
+</html>
